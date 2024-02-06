@@ -28,8 +28,20 @@ const team = {
       teamPoints: newTeamPoints,
       opponentPoints: newOpponentPoints
     })
+  },
+  get totalGames(){
+    return this._games.length
+  },
+  get averageScore(){
+    let points = 0
+    for (game in this._games){
+      points += this._games[game].teamPoints
+    }
+    return points / this.totalGames
   }
 }
 
 team.addGame('Titans', 100, 98)
 console.log(team._games)
+console.log(team.totalGames)
+console.log(team.averageScore)
